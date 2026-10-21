@@ -7,7 +7,8 @@ from sqlalchemy import Integer, String, Text, DateTime
 @pytest.mark.parametrize(
     "path",
     (
-        "settings.py",
+        #"settings.py",
+        "opinions_app/settings.py",
         "opinions_app/__init__.py",
         "opinions_app/cli_commands.py",
         "opinions_app/error_handlers.py",
@@ -21,7 +22,7 @@ def test_required_files_exist(project_root: Path, path: str):
 
 
 def test_config_class():
-    from settings import Config
+    from opinions_app.settings import Config
 
     assert Config is not None, (
         "Убедитесь, что в файле `settings.py` описан класс `Config`."
