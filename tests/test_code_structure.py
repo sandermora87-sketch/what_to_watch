@@ -7,8 +7,7 @@ from sqlalchemy import Integer, String, Text, DateTime
 @pytest.mark.parametrize(
     "path",
     (
-        #"settings.py",
-        "opinions_app/settings.py",
+        "settings.py",
         "opinions_app/__init__.py",
         "opinions_app/cli_commands.py",
         "opinions_app/error_handlers.py",

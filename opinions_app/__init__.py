@@ -2,7 +2,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
-from .settings import Config
+from what_to_watch.settings import Config
 
 app = Flask(__name__)
 app.config.from_object(Config)
