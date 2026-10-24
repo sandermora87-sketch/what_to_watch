@@ -21,7 +21,7 @@ def test_required_files_exist(project_root: Path, path: str):
 
 
 def test_config_class():
-    from opinions_app.settings import Config
+    from settings import Config
 
     assert Config is not None, (
         "Убедитесь, что в файле `settings.py` описан класс `Config`."

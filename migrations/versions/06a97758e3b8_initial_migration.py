@@ -1,8 +1,8 @@
 """initial migration
 
-Revision ID: 3763962378f9
-Revises:
-Create Date: 2026-10-18 21:08:41.993475
+Revision ID: 06a97758e3b8
+Revises: 
+Create Date: 2026-10-24 14:57:01.090808
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '3763962378f9'
+revision = '06a97758e3b8'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -29,7 +29,8 @@ def upgrade():
     sa.UniqueConstraint('text')
     )
     with op.batch_alter_table('opinion', schema=None) as batch_op:
-        batch_op.create_index(batch_op.f('ix_opinion_timestamp'), ['timestamp'], unique=False)
+        batch_op.create_index(batch_op.f('ix_opinion_timestamp'),
+                              ['timestamp'], unique=False)
 
     # ### end Alembic commands ###
 

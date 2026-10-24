@@ -1,9 +1,14 @@
-import sys
-import importlib
-from what_to_watch.settings import Config
-settings_module = importlib.import_module('what_to_watch.settings')
-sys.modules['opinions_app.settings'] = settings_module
+# what_to_watch/settings.py
+import os
+from dotenv import load_dotenv
 
-app = Flask(__name__)
-app.config.from_object(Config)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite3'
+# Загружаем переменные из файла .env
+load_dotenv()
+
+
+class Config(object):
+    # Читаем значения из окружения.
+    # Если переменной нет, используем значение по умолчанию (опционально)
+    SQLALCHEMY_DATABASE_URI = os.getenv('SQLALCHEMY_DATABASE_URI',
+                                        'sqlite:///db.sqlite3')
+    SECRET_KEY = os.getenv('SECRET_KEY', 'dev-key-for-local-only')

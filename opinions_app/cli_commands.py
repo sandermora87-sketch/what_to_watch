@@ -1,7 +1,6 @@
 import csv
 import click
 
-
 from . import app, db
 from .models import Opinion
 
